@@ -1,0 +1,33 @@
+import Adafruit_DHT
+import RPi.GPIO as GPIO
+import datetime
+from firebase import firebase
+
+#set pins for sensors
+pin1 = 17
+pin2 = 27
+pin3 = 17
+pin4 = 27
+sensor = Adafruit_DHT.DHT11
+
+#connect to firebase
+firebase = firebase.FirebaseApplication('https://datc-85258.firebaseio.com/')
+
+id=0
+
+while 1:
+	#read values from sensors
+	temp1, umiditate1 = Adafriiot_DHT.read_retry(sensor, pin1)
+	temp2, umiditate2 = Adafriiot_DHT.read_retry(sensor, pin2)
+	temp3, umiditate3 = Adafriiot_DHT.read_retry(sensor, pin3)
+	temp4, umiditate4 = Adafriiot_DHT.read_retry(sensor, pin4)
+	
+	#get real time
+	datetime.datetime.now()
+
+	#send data to firebase
+	id++
+	firebase.post('s1/'+str(id)+'/', {'temp':temp1; 'value':umiditate1})
+	firebase.post('s2/'+str(id)+'/', {'temp':temp2; 'value':umiditate2})
+	firebase.post('s3/'+str(id)+'/', {'temp':temp3; 'value':umiditate3})
+	firebase.post('s4/'+str(id)+'/', {'temp':temp4; 'value':umiditate4})
