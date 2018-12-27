@@ -82,7 +82,7 @@ namespace ConsoleApp2
         public static void InsertDataIntoT1()
         {
             List<T1> ListToInsertIntoT1 = new List<T1>();
-            ListToInsertIntoT1.Add(new T1 { ID = 2, LATITUDINE = 40, LONGITUDINE = 60 });
+            ListToInsertIntoT1.Add(new T1 { ID = 6, LATITUDINE = 5, LONGITUDINE = 60 });
 
             SqlConnection conn = null;
             SqlCommand insertCommand = null;

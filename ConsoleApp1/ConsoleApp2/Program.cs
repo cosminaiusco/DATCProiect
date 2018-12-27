@@ -13,7 +13,7 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             SqlOperations.ReadTABLE1();
-            SqlOperations.DeleteID(1,"TABLE1");
+            SqlOperations.InsertDataIntoT1();
             SqlOperations.ReadTABLE1();
             Console.ReadKey();
         }

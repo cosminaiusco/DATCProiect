@@ -12,3 +12,17 @@ C:\Users\Cosmina\Desktop\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.csprojRes
 C:\Users\Cosmina\Desktop\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Cosmina\Desktop\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\Cosmina\Desktop\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\Google.Protobuf.dll
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\MySql.Data.dll
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\Google.Protobuf.xml
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\MySql.Data.xml
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.csprojResolveAssemblyReference.cache
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.csproj.CoreCompileInputs.cache
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\Cosmina\Documents\GitHub\DATCProiect\ConsoleApp1\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
