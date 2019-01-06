@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Harta de irigatii</title>
+  <style>
+    #map{
+      height:400px;
+      width:100%;
+    }
+  </style>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+</head>
+<body>
+  <h1>Harta de irigatii</h1>
+
+  <!-- <button type="button" value ="Sensors" onclick="readSensors()">Sensors </button>
+  <input type="text" id="id1"/>
+  <input type="text" id="id2"/> -->
+  <!-- <script type="text/javascript">
+  function readSensors()
+  {
+    window.open();
+    document.getElementById("results").value;
+  }
+  </script> -->
+  <input type="button" onclick="readSensors()" value="sensors">
+
+  <div id="map"></div>
+  <script>
+    var map, heatmap;
+    function initMap(){
+      // Map options
+      var options = {
+        zoom:14,
+        center:{lat:45.748871,lng:21.208679}
+      }
+
+      // New map
+       map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Add marker
+      var marker1 = new google.maps.Marker({
+        position:{lat:45.754263,lng:21.238519},
+        map:map
+      });
+
+      var marker2 = new google.maps.Marker({
+        position:{lat:45.754574,lng:21.229829},
+        map:map
+      });
+
+      var marker3 = new google.maps.Marker({
+        position:{lat:45.749846,lng:21.229721},
+        map:map
+      });
+
+      var marker3 = new google.maps.Marker({
+        position:{lat:45.751215,lng:21.237702},
+        map:map
+      });
+
+
+      //heatmap
+      var heatMapData = [
+        {location: new google.maps.LatLng(45.754263, 21.238519), weight: 9999},
+        {location: new google.maps.LatLng(45.754574, 21.229829), weight: 9999},
+        {location: new google.maps.LatLng(45.749846, 21.229721), weight: 9999},
+        {location: new google.maps.LatLng(45.751215, 21.237702), weight: 9999}
+      ];
+      var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: heatMapData
+      });
+      heatmap.setMap(map);
+      }
+
+      var socket = io.connect("/");
+      socket.emit("connection","client connected");
+      socket.on("message",function(data){
+
+      console.log("rezultate: " + data.ID + " "+data.TIMP + " "+data.TEMPERATURA +" "+data.UMIDITATE);
+
+// function readSensors()
+// {
+        if(data.ID == 1)
+        {
+          document.getElementById('id1').value = data.ID;
+          document.getElementById('timp1').value = data.TIMP;
+          document.getElementById('temp1').value = data.TEMPERATURA;
+          document.getElementById('umid1').value = data.UMIDITATE;
+        }
+        else if(data.ID == 2)
+          {
+            document.getElementById('id2').value = data.ID;
+            document.getElementById('timp2').value = data.TIMP;
+            document.getElementById('temp2').value = data.TEMPERATURA;
+            document.getElementById('umid2').value = data.UMIDITATE;
+          }
+          else if(data.ID == 3)
+            {
+              document.getElementById('id3').value = data.ID;
+              document.getElementById('timp3').value = data.TIMP;
+              document.getElementById('temp3').value = data.TEMPERATURA;
+              document.getElementById('umid3').value = data.UMIDITATE;
+            }
+            else
+            {
+              document.getElementById('id4').value = data.ID;
+              document.getElementById('timp4').value = data.TIMP;
+              document.getElementById('temp4').value = data.TEMPERATURA;
+              document.getElementById('umid4').value = data.UMIDITATE;
+            }
+// }
+      });
+  </script>
+
+
+  <p>Senzor &nbsp &nbsp &nbsp &nbsp &nbsp
+  <input type="text" id="id1"/>
+  <input type="text" id="id2"/>
+  <input type="text" id="id3"/>
+  <input type="text" id="id4"/>
+
+  <p>Timp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <input type="text" id="timp1"/>
+    <input type="text" id="timp2"/>
+    <input type="text" id="timp3"/>
+    <input type="text" id="timp4"/>
+
+<p>Temperatura
+  <input type="text" id="temp1"/>
+  <input type="text" id="temp2"/>
+  <input type="text" id="temp3"/>
+  <input type="text" id="temp4"/>
+<p>Umiditate &nbsp &nbsp
+  <input type="text" id="umid1"/>
+  <input type="text" id="umid2"/>
+  <input type="text" id="umid3"/>
+  <input type="text" id="umid4"/>
+
+  <!-- <script>
+  var q=document.location.search.substring(0);
+        document.write(q);
+        document.write("<p>")
+   q1=document.location.search.substring(1);
+   document.write(q1);
+  document.write("<p>")
+   a=new Array();
+   a=q1.split('&');
+   document.write(a[0])
+  </script> -->
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2Bg9IVcTZG9eIFlmvnrzmqxWXlIgWS3Y&callback=initMap&libraries=visualization">
+    </script>
+
+
+</body>
+</html>
