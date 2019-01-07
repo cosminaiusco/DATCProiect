@@ -2,32 +2,48 @@ import Adafruit_DHT
 import RPi.GPIO as GPIO
 import datetime
 from firebase import firebase
+import time
 
-#set pins for sensors
-pin1 = 17
-pin2 = 27
-pin3 = 17
-pin4 = 27
+#set pins
+pin1 = 4
+pin2 = 17
+pin3 = 27
+pin4 = 22
+
 sensor = Adafruit_DHT.DHT11
+GPIO.setwarnings(False)
 
 #connect to firebase
-firebase = firebase.FirebaseApplication('https://datc-85258.firebaseio.com/')
+firebase = firebase.FirebaseApplication('https://datc-85258.firebaseio.com', None)
 
-id=0
-
+id = 0
 while 1:
-	#read values from sensors
-	temp1, umiditate1 = Adafriiot_DHT.read_retry(sensor, pin1)
-	temp2, umiditate2 = Adafriiot_DHT.read_retry(sensor, pin2)
-	temp3, umiditate3 = Adafriiot_DHT.read_retry(sensor, pin3)
-	temp4, umiditate4 = Adafriiot_DHT.read_retry(sensor, pin4)
-	
-	#get real time
-	datetime.datetime.now()
+	umiditate1, temp1 = Adafruit_DHT.read_retry(sensor, pin1)
+	umiditate2, temp2 = Adafruit_DHT.read_retry(sensor, pin2)
+	umiditate3, temp3 = Adafruit_DHT.read_retry(sensor, pin3)
+	umiditate4, temp4 = Adafruit_DHT.read_retry(sensor, pin4)
+
+	#get date
+	date = datetime.datetime.now()
 
 	#send data to firebase
-	id++
-	firebase.post('s1/'+str(id)+'/', {'temp':temp1; 'value':umiditate1})
-	firebase.post('s2/'+str(id)+'/', {'temp':temp2; 'value':umiditate2})
-	firebase.post('s3/'+str(id)+'/', {'temp':temp3; 'value':umiditate3})
-	firebase.post('s4/'+str(id)+'/', {'temp':temp4; 'value':umiditate4})
+	id=id+1
+	firebase.put('s1/' + str(id)+'/',"t",date)
+	firebase.put('s1/' + str(id)+'/',"temp", temp1)
+	firebase.put('s1/' + str(id)+'/',"umiditate",umiditate1)
+	
+	firebase.put('s2/' + str(id)+'/',"t",date)
+	firebase.put('s2/' + str(id)+'/',"temp", temp2)
+	firebase.put('s2/' + str(id)+'/',"umiditate",umiditate2)
+	
+	firebase.put('s3/' + str(id)+'/',"t",date)
+	firebase.put('s3/' + str(id)+'/',"temp", temp3)
+	firebase.put('s3/' + str(id)+'/',"umiditate",umiditate3)
+	
+	firebase.put('s4/' + str(id)+'/',"t",date)
+	firebase.put('s4/' + str(id)+'/',"temp", temp4)
+	firebase.put('s4/' + str(id)+'/',"umiditate",umiditate4)
+	
+	firebase.put('counter/',"cnt",id)
+        
+        time.sleep(20)
