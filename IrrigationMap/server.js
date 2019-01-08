@@ -47,7 +47,7 @@ connection.on('connect', function(err)
         }
         else
         {
-            queryDatabase()
+           queryDatabase()
         }
     }
 );

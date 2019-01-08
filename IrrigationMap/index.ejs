@@ -32,6 +32,55 @@
   <div id="map"></div>
   <script>
     var map, heatmap;
+
+    // var citymap = {
+    //    chicago: {
+    //      center: {lat: 45.754263, lng: 21.238519},
+    //      population: 1
+    //    },
+    //    timisoara: {
+    //      center: {lat: 45.754574, lng: 21.229829},
+    //      population: 1
+    //    },
+    //    losangeles: {
+    //      center: {lat: 34.052, lng: -118.243},
+    //      population: 3857799
+    //    },
+    //    vancouver: {
+    //      center: {lat: 49.25, lng: -123.1},
+    //      population: 603502
+    //    }
+    //  };
+
+//temperature and humidity circles
+    var citymap1 = {
+       senzor1: {
+         center: {lat: 45.754263, lng: 21.238519},
+         population: 1
+       }
+     };
+
+     var citymap2 = {
+        senzor2: {
+          center: {lat: 45.754574, lng: 21.229829},
+          population: 1
+        }
+      };
+
+           var citymap3 = {
+              senzor3: {
+                center: {lat: 45.749846, lng: 21.229721},
+                population: 1
+              }
+            };
+          var citymap4 = {
+                    senzor4: {
+                      center: {lat: 45.751215, lng: 21.237702},
+                      population: 1
+                    }
+                  };
+
+
     function initMap(){
       // Map options
       var options = {
@@ -58,10 +107,11 @@
         map:map
       });
 
-      var marker3 = new google.maps.Marker({
+      var marker4 = new google.maps.Marker({
         position:{lat:45.751215,lng:21.237702},
         map:map
       });
+
 
 
       //heatmap
@@ -91,6 +141,55 @@
           document.getElementById('timp1').value = data.TIMP;
           document.getElementById('temp1').value = data.TEMPERATURA;
           document.getElementById('umid1').value = data.UMIDITATE;
+
+          if(data.TEMPERATURA<30 && data.UMIDITATE<30)
+          {
+            for (var city in citymap1) {
+                     // Add the circle for this city to the map.
+                     var cityCircle = new google.maps.Circle({
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.2,
+                       strokeWeight: 1,
+                       fillColor: '#FF0000',
+                       fillOpacity: 0.35,
+                       map: map,
+                       center: citymap1[city].center,
+                       radius: Math.sqrt(citymap1[city].population)
+                     });
+                   }
+          }
+          else if(data.TEMPERATURA>=30 )
+          {
+            for (var city in citymap1) {
+                     // Add the circle for this city to the map.
+                     var cityCircle = new google.maps.Circle({
+                       strokeColor: '#FF0000',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 2,
+                       fillColor: '#FF0000',
+                       fillOpacity: 0.35,
+                       map: map,
+                       center: citymap1[city].center,
+                       radius: Math.sqrt(citymap1[city].population) * 90
+                     });
+                   }
+          }
+          else if(data.UMIDITATE>50 && data.TEMPERATURA<30)
+          {
+            for (var city in citymap1) {
+                     // Add the circle for this city to the map.
+                     var cityCircle = new google.maps.Circle({
+                         strokeColor: '#7FFF00',
+                       strokeOpacity: 0.8,
+                       strokeWeight: 2,
+                       fillColor: '#7FFF00',
+                       fillOpacity: 0.35,
+                       map: map,
+                       center: citymap1[city].center,
+                       radius: Math.sqrt(citymap1[city].population) * 90
+                     });
+                   }
+          }
         }
         else if(data.ID == 2)
           {
@@ -98,6 +197,55 @@
             document.getElementById('timp2').value = data.TIMP;
             document.getElementById('temp2').value = data.TEMPERATURA;
             document.getElementById('umid2').value = data.UMIDITATE;
+
+            if(data.TEMPERATURA<30 && data.UMIDITATE<30)
+            {
+              for (var city in citymap2) {
+                       // Add the circle for this city to the map.
+                       var cityCircle = new google.maps.Circle({
+                         strokeColor: '#FF0000',
+                         strokeOpacity: 0.2,
+                         strokeWeight: 1,
+                         fillColor: '#FF0000',
+                         fillOpacity: 0.35,
+                         map: map,
+                         center: citymap2[city].center,
+                         radius: Math.sqrt(citymap2[city].population)
+                       });
+                     }
+            }
+          else if(data.TEMPERATURA>=30 )
+            {
+              for (var city in citymap2) {
+                       // Add the circle for this city to the map.
+                       var cityCircle = new google.maps.Circle({
+                         strokeColor: '#FF0000',
+                         strokeOpacity: 0.8,
+                         strokeWeight: 2,
+                         fillColor: '#FF0000',
+                         fillOpacity: 0.35,
+                         map: map,
+                         center: citymap2[city].center,
+                         radius: Math.sqrt(citymap2[city].population) * 90
+                       });
+                     }
+            }
+              else if(data.UMIDITATE>50 && data.TEMPERATURA<30)
+            {
+              for (var city in citymap2) {
+                       // Add the circle for this city to the map.
+                       var cityCircle = new google.maps.Circle({
+                           strokeColor: '#7FFF00',
+                         strokeOpacity: 0.8,
+                         strokeWeight: 2,
+                         fillColor: '#7FFF00',
+                         fillOpacity: 0.35,
+                         map: map,
+                         center: citymap2[city].center,
+                         radius: Math.sqrt(citymap2[city].population) * 90
+                       });
+                     }
+            }
           }
           else if(data.ID == 3)
             {
@@ -105,6 +253,55 @@
               document.getElementById('timp3').value = data.TIMP;
               document.getElementById('temp3').value = data.TEMPERATURA;
               document.getElementById('umid3').value = data.UMIDITATE;
+
+              if(data.TEMPERATURA<30 && data.UMIDITATE<30)
+              {
+                for (var city in citymap3) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                           strokeColor: '#FF0000',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#FF0000',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap3[city].center,
+                           radius: Math.sqrt(citymap3[city].population)
+                         });
+                       }
+              }
+              else if(data.TEMPERATURA>=30 )
+              {
+                for (var city in citymap3) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                           strokeColor: '#FF0000',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#FF0000',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap3[city].center,
+                           radius: Math.sqrt(citymap3[city].population) * 90
+                         });
+                       }
+              }
+                else if(data.UMIDITATE>50 && data.TEMPERATURA<30)
+              {
+                for (var city in citymap3) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                             strokeColor: '#7FFF00',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#7FFF00',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap3[city].center,
+                           radius: Math.sqrt(citymap3[city].population) * 90
+                         });
+                       }
+                     }
             }
             else
             {
@@ -112,8 +309,56 @@
               document.getElementById('timp4').value = data.TIMP;
               document.getElementById('temp4').value = data.TEMPERATURA;
               document.getElementById('umid4').value = data.UMIDITATE;
+
+              if(data.TEMPERATURA<30 && data.UMIDITATE<30)
+              {
+                for (var city in citymap4) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                           strokeColor: '#FF0000',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#FF0000',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap4[city].center,
+                           radius: Math.sqrt(citymap4[city].population)
+                         });
+                       }
+              }
+            else if(data.TEMPERATURA>=30 )
+              {
+                for (var city in citymap4) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                           strokeColor: '#FF0000',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#FF0000',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap4[city].center,
+                           radius: Math.sqrt(citymap4[city].population) * 90
+                         });
+                       }
+              }
+                else if(data.UMIDITATE>50 && data.TEMPERATURA<30)
+              {
+                for (var city in citymap4) {
+                         // Add the circle for this city to the map.
+                         var cityCircle = new google.maps.Circle({
+                             strokeColor: '#7FFF00',
+                           strokeOpacity: 0.8,
+                           strokeWeight: 2,
+                           fillColor: '#7FFF00',
+                           fillOpacity: 0.35,
+                           map: map,
+                           center: citymap4[city].center,
+                           radius: Math.sqrt(citymap4[city].population) * 90
+                         });
+                       }
+                     }
             }
-// }
       });
   </script>
 
